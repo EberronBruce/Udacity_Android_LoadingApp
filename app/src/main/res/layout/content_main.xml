@@ -12,7 +12,7 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="@dimen/main_frame_layout_size"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/main_image_size"
+            android:layout_height="@dimen/main_image_size"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/ic_assistant_black_24dp"
@@ -32,10 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_margin="@dimen/radio_group_margin"
         app:layout_constraintBottom_toTopOf="@+id/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,22 +42,25 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/radioGlide" />
+            android:layout_margin="@dimen/margin_main"
+            android:text="@string/radioGlide"
+            android:minHeight="@dimen/radio_min_height"/>
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/radioLoadApp" />
+            android:layout_margin="@dimen/margin_main"
+            android:text="@string/radioLoadApp"
+            android:minHeight="@dimen/radio_min_height"/>
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/radioRetrofit" />
+            android:layout_margin="@dimen/margin_main"
+            android:text="@string/radioRetrofit"
+            android:minHeight="@dimen/radio_min_height"/>
     </RadioGroup>
 
     <com.udacity.LoadingButton
@@ -72,4 +72,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

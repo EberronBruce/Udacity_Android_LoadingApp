@@ -1,5 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-
+    <dimen name="margin_main">20dp</dimen>
+    <dimen name="radio_group_margin">24dp</dimen>
+    <dimen name="main_image_size">150dp</dimen>
+    <dimen name="main_frame_layout_size">250dp</dimen>
     <dimen name="default_text_size">20sp</dimen>
+    <dimen name="radio_min_height">60dp</dimen>
 </resources>

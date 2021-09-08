@@ -4,6 +4,5 @@
     android:duration="@integer/duration"
     android:interpolator="@android:anim/accelerate_decelerate_interpolator"
     android:valueFrom="@integer/start_number"
-    android:valueTo="@integer/end_bar"
+    android:valueTo="@integer/end_circle"
     android:valueType="floatType"/>
-

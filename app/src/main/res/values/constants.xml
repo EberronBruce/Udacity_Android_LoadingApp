@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="duration">2000</integer>
+    <item name="start_number" format="float" type="integer">0.0</item>
+    <item name="end_circle" format="float" type="integer">360.0</item>
+    <item name="end_bar" format="float" type="integer">100.0</item>
+</resources>

@@ -4,5 +4,7 @@
         <!--create custom attributes for the the view-->
         <attr name="bgColor" format="integer" />
         <attr name="textColor" format="integer" />
+        <attr name="loadColor" format="integer" />
+        <attr name="circleColor" format="integer" />
     </declare-styleable>
 </resources>

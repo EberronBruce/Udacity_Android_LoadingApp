@@ -200,14 +200,16 @@ class LoadingButton @JvmOverloads constructor(
     }
 
     private fun circleFrame(buttonText: String) {
+        val circleIndicatorWidth = 25f
+        val circleMultipleWidth = 0.65f
         val cHeight = r.height()
         val cWidth = r.width()
         paint.getTextBounds(buttonText, 0, buttonText.length, r)
         rectF.set(
-            (cWidth / 2f + r.width() * 0.65f) - 25f,
-            (cHeight / 2) - 25f,
-            (cWidth / 2f + r.width() * 0.65f) + 25f,
-            (cHeight / 2) + 25f
+            (cWidth / 2f + r.width() * circleMultipleWidth) - circleIndicatorWidth,
+            (cHeight / 2) - circleIndicatorWidth,
+            (cWidth / 2f + r.width() * circleMultipleWidth) + circleIndicatorWidth,
+            (cHeight / 2) + circleIndicatorWidth
         )
     }
 

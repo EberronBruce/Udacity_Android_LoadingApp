@@ -9,6 +9,8 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.databinding.DataBindingUtil
@@ -34,19 +36,43 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
 
         binding.contentMain.customButton.setOnClickListener {
-            download()
+            //download(UDACITY_URL)
+            val radioGroup = binding.contentMain.radioGroup
+            val loadingButton = it as LoadingButton
+
+            when (radioGroup.checkedRadioButtonId) {
+                R.id.radioGlide -> {
+                    download(GLIDE_URL)
+                }
+                R.id.radioLoad -> {
+                    download(LOAD_URL)
+                }
+                R.id.radioRetroFit -> {
+                    download(RETROFIT_URL)
+                }
+                else -> {
+                    Toast.makeText(applicationContext, R.string.noRadioSelected, Toast.LENGTH_SHORT).show()
+                    //TODO: Bug here unable to stop animation.
+                    loadingButton.changeButtonState(ButtonState.Completed) // Unable to send back Complete to stop animation
+                }
+            }
         }
     }
 
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+            Log.d(TAG, "id : $id")
+            if (id == downloadID) {
+                Log.d(TAG, "Finish Download")
+                binding.contentMain.customButton.changeButtonState(ButtonState.Completed)
+            }
         }
     }
 
-    private fun download() {
+    private fun download(url : String) {
         val request =
-            DownloadManager.Request(Uri.parse(URL))
+            DownloadManager.Request(Uri.parse(url))
                 .setTitle(getString(R.string.app_name))
                 .setDescription(getString(R.string.app_description))
                 .setRequiresCharging(false)
@@ -56,11 +82,14 @@ class MainActivity : AppCompatActivity() {
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         downloadID =
             downloadManager.enqueue(request)// enqueue puts the download request in the queue.
+        Log.d(TAG, "downloadID : $downloadID")
     }
 
     companion object {
-        private const val URL =
+        private const val LOAD_URL =
             "https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
+        private const val GLIDE_URL = "https://github.com/bumptech/glide"
+        private const val RETROFIT_URL = "https://github.com/square/retrofit"
         private const val CHANNEL_ID = "channelId"
     }
 

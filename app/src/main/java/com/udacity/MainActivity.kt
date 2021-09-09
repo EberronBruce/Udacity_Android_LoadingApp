@@ -9,6 +9,8 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -53,8 +55,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     Toast.makeText(applicationContext, R.string.noRadioSelected, Toast.LENGTH_SHORT).show()
-                    //TODO: Bug here unable to stop animation.
-                    loadingButton.changeButtonState(ButtonState.Completed) // Unable to send back Complete to stop animation
+                    loadingButton.changeButtonState(ButtonState.Completed)
                 }
             }
         }
@@ -66,7 +67,13 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "id : $id")
             if (id == downloadID) {
                 Log.d(TAG, "Finish Download")
-                binding.contentMain.customButton.changeButtonState(ButtonState.Completed)
+                //Give some delay to see animation
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.contentMain.customButton.changeButtonState(ButtonState.Completed)
+                }, 1000)
+
+
+
             }
         }
     }

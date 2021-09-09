@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             //download(UDACITY_URL)
             val radioGroup = binding.contentMain.radioGroup
             val loadingButton = it as LoadingButton
+            loadingButton.changeButtonState(ButtonState.Loading)
 
             when (radioGroup.checkedRadioButtonId) {
                 R.id.radioGlide -> {

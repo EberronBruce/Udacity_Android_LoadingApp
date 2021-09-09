@@ -146,13 +146,6 @@ class LoadingButton @JvmOverloads constructor(
         typeface = Typeface.create("", Typeface.BOLD) // button text's font style
     }
 
-    override fun performClick(): Boolean {
-        Log.d(TAG, "Perform Click")
-        super.performClick()
-        changeButtonState(ButtonState.Loading)
-        return true
-    }
-
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         val buttonText = if (buttonState == ButtonState.Loading)
@@ -227,6 +220,7 @@ class LoadingButton @JvmOverloads constructor(
     }
 
     fun changeButtonState(state: ButtonState) {
+        Log.d(TAG, "changeButtonState: $state")
         if (buttonState != state) {
             buttonState = state
             invalidate()

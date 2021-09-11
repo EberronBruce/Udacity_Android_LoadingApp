@@ -45,9 +45,6 @@ class MainActivity : AppCompatActivity() {
             setupCustomButtonOnClickLister(loadingButton)
             createChannel(getString(R.string.notifyChannelId), getString(R.string.notifyChannelName))
         }
-
-//        val intent = Intent(this, DetailActivity::class.java)
-//        startActivity(intent)
     }
 
     private fun setupCustomButtonOnClickLister(loadingButton: LoadingButton) {
@@ -73,7 +70,6 @@ class MainActivity : AppCompatActivity() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
             val downloadManager : DownloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
-            Log.d(TAG, "id : $id")
             if (id == downloadID) {
                 createBroadcastReceiver(context, downloadManager)
             }
@@ -151,8 +147,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val LOAD_URL =
-            "https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
+        private const val LOAD_URL = "https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
         private const val GLIDE_URL = "https://github.com/bumptech/glide"
         private const val RETROFIT_URL = "https://github.com/square/retrofit"
     }

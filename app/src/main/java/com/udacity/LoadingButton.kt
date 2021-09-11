@@ -85,14 +85,6 @@ class LoadingButton @JvmOverloads constructor(
         requestLayout()
     }
 
-    // call after downloading is completed
-//    fun hasCompletedDownload() {
-//        // cancel the animation when file is downloaded
-//        changeButtonState(ButtonState.Completed)
-//        invalidate()
-//        requestLayout()
-//    }
-
     // initialize
     init {
         isClickable = true

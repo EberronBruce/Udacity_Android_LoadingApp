@@ -40,5 +40,5 @@ fun NotificationManager.sendNotification(message: String, applicationContext: Co
         .addAction(R.drawable.ic_assistant_black_24dp, NOTIFY_BUTTON_TITLE, contentPendingIntent )
         .setAutoCancel(true)
 
-    notify(0, builder.build())
+    notify(ID, builder.build())
 }

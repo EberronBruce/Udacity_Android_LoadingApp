@@ -126,8 +126,18 @@ class MainActivity : AppCompatActivity() {
     private fun download(url : String) {
         val request =
             DownloadManager.Request(Uri.parse(url))
-                .setTitle(getString(R.string.app_name))
-                .setDescription(getString(R.string.app_description))
+                .setTitle(when (url) {
+                    LOAD_URL -> "LoadApp"
+                    GLIDE_URL -> "Glide"
+                    RETROFIT_URL -> "Retrofit"
+                    else -> "Unknown"
+                })
+                .setDescription(when (url) {
+                    LOAD_URL -> getString(R.string.radioLoadApp)
+                    GLIDE_URL -> getString(R.string.radioGlide)
+                    RETROFIT_URL -> getString(R.string.radioRetrofit)
+                    else -> "Unknown"
+                })
                 .setRequiresCharging(false)
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true)

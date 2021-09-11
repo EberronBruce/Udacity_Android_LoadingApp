@@ -1,10 +1,10 @@
 package com.udacity.notification
 
-import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.udacity.DetailActivity
 import com.udacity.R
@@ -12,19 +12,25 @@ import com.udacity.R
 
 private const val ID = 0
 private const val NOTIFY_BUTTON_TITLE = "Check Download"
-private const val KEY_DOWNLOAD_TITLE = "download_title"
-private const val KEY_DOWNLOAD_STATUS = "download_status"
+object Constants {
+    const val KEY_DOWNLOAD_FILE_NAME = "download_file_name"
+    const val KEY_DOWNLOAD_STATUS = "download_status"
+}
 
-fun NotificationManager.sendNotification(message: String, applicationContext: Context, title: String, status: Int) {
+
+fun NotificationManager.sendNotification(message: String, applicationContext: Context, fileName: String, status: Int) {
 
     val contentIntent = Intent(applicationContext, DetailActivity::class.java)
-    contentIntent.putExtra(KEY_DOWNLOAD_TITLE , title)
-    contentIntent.putExtra(KEY_DOWNLOAD_STATUS, status)
+    //Log.d("NotificationManager", "FileName : $fileName")
+    contentIntent.putExtra(Constants.KEY_DOWNLOAD_FILE_NAME , fileName)
+    contentIntent.putExtra(Constants.KEY_DOWNLOAD_STATUS, status)
+
+   //Log.d("NotificationManager", "Testing : ${contentIntent.getStringExtra("test")}")
     val contentPendingIntent = PendingIntent.getActivities(
         applicationContext,
         ID,
         arrayOf(contentIntent),
-        PendingIntent.FLAG_IMMUTABLE
+        PendingIntent.FLAG_UPDATE_CURRENT
     )
 
     val builder = NotificationCompat.Builder(

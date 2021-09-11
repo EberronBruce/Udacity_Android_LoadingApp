@@ -18,4 +18,10 @@
     <string name="noRadioSelected">Please make a selection first.</string>
     <string name="notifyChannelId">notify_channel_id</string>
     <string name="notifyChannelName">LoadApp</string>
+    <string name="file_name">File Name</string>
+    <string name="status">Status</string>
+
+    <string name="download_success">SUCCESS</string>
+    <string name="download_failure">FAILURE</string>
+    <string name="download_unknown">UNKNOWN STATUS</string>
 </resources>

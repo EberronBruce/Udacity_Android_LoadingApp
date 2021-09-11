@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
             setupCustomButtonOnClickLister(loadingButton)
             createChannel(getString(R.string.notifyChannelId), getString(R.string.notifyChannelName))
         }
+
+//        val intent = Intent(this, DetailActivity::class.java)
+//        startActivity(intent)
     }
 
     private fun setupCustomButtonOnClickLister(loadingButton: LoadingButton) {

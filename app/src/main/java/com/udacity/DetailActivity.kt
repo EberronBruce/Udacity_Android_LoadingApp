@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.udacity.databinding.ActivityDetailBinding
 import com.udacity.notification.Constants
 
+private const val TAG = "DetailActivity"
 
 class DetailActivity : AppCompatActivity() {
 
@@ -19,8 +20,12 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
         setSupportActionBar(binding.toolbar)
-        Log.d("DetailActivity.onCreate", "Constants: ${Constants.KEY_DOWNLOAD_FILE_NAME}, ${Constants.KEY_DOWNLOAD_STATUS}")
-        Log.d("DetailActivity.onCreate", "title: ${ intent.getStringExtra(Constants.KEY_DOWNLOAD_FILE_NAME).toString()}, status: ${intent.getIntExtra(Constants.KEY_DOWNLOAD_STATUS, -1)}")
+        Log.d("${TAG}.onCreate", "Constants: ${Constants.KEY_DOWNLOAD_FILE_NAME}, ${Constants.KEY_DOWNLOAD_STATUS}")
+        Log.d("${TAG}.onCreate", "title: ${ intent.getStringExtra(Constants.KEY_DOWNLOAD_FILE_NAME).toString()}, status: ${intent.getIntExtra(Constants.KEY_DOWNLOAD_STATUS, -1)}")
+
+        val height = resources.displayMetrics.heightPixels
+        Log.d("${TAG}.onCreate", "height : $height")
+
 
         binding.contentDetail.downloadData = downloadData
         downloadData.fileName = intent.getStringExtra(Constants.KEY_DOWNLOAD_FILE_NAME) ?: "No FileName"
@@ -41,6 +46,7 @@ class DetailActivity : AppCompatActivity() {
         }
 
     }
+
 
 
 }

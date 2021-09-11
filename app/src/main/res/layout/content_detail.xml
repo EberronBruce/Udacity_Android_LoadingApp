@@ -9,23 +9,22 @@
             type="com.udacity.DownloadData"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/detail_motion_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".DetailActivity"
-        tools:showIn="@layout/activity_detail">
+        app:layoutDescription="@xml/detail_motion_scene"
+        app:motionDebug="SHOW_PATH">
 
         <TextView
             android:id="@+id/FileNameLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:text="@string/file_name"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +41,7 @@
             tools:text="File Name Check"
             android:textAlignment="center"
             android:textStyle="italic"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/FileNameLabel" />
@@ -55,7 +55,7 @@
             android:layout_marginEnd="32dp"
             android:text="@string/status"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +72,9 @@
             tools:text="Status Check"
             android:textAlignment="center"
             android:textStyle="italic"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/StatusLabel" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

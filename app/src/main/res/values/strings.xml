@@ -24,4 +24,5 @@
     <string name="download_success">SUCCESS</string>
     <string name="download_failure">FAILURE</string>
     <string name="download_unknown">UNKNOWN STATUS</string>
+    <string name="back_button">Go Back To Main Screen</string>
 </resources>

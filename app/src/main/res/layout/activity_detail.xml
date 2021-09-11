@@ -26,8 +26,9 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/content_detail"
-                android:id="@+id/content_detail"/>
+        <include
+            android:id="@+id/content_detail"
+            layout="@layout/content_detail" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -35,7 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
             android:layout_margin="@dimen/fab_margin"
-            android:contentDescription="@null"
+            android:contentDescription="@string/back_button"
+            android:tint="#FFFFFF"
             app:srcCompat="?attr/actionModeCloseDrawable" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

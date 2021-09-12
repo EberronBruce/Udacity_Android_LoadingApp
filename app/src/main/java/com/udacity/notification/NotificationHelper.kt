@@ -26,7 +26,7 @@ fun NotificationManager.sendNotification(message: String, applicationContext: Co
         applicationContext,
         ID,
         arrayOf(contentIntent),
-        PendingIntent.FLAG_UPDATE_CURRENT
+        PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
     )
 
     val builder = NotificationCompat.Builder(
